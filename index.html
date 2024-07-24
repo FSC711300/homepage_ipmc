@@ -63,6 +63,12 @@
             width: 100%;
             height: auto;
         }
+
+        .qr-code img {
+            width: 150px; /* 可以调整二维码的大小 */
+            height: 150px;
+            margin: 10px;
+        }
     </style>
 </head>
 <body>
@@ -72,11 +78,12 @@
     <nav>
         <a href="#about">简介</a>
         <a href="#recruitment">招新</a>
+        <a href="#videos">我们的作品</a>
     </nav>
     <div class="container">
         <section id="intro-video" class="section">
             <h2>欢迎视频</h2>
-            <video controls>
+            <video id="welcome-video" controls>
                 <source src="https://finder.video.qq.com/251/20302/stodownload?encfilekey=Cvvj5Ix3eewK0tHtibORqcsqchXNh0Gf3sJcaYqC2rQDy0g5Cw4ibUN8aLZb6YzZtV8qxjWqs56Z8oY1ZlFQS4H8blpgzusmJju2Pa2BU8qNnpZO7J02VXQyic4YgcM3UQf&token=cztXnd9GyrFQvVnibOoFrMzznG4MmhxrdUmYhDvrHiaSDHfDLboMHHaeSE7kzN2K6kjzrT9K9zicDNiaEYAAss1lQ9FIT0LkoaibEGEcAHUJPv5tbWJtUuwDC5Pq062a7BMmn&idx=1&bizid=1023&dotrans=0&hy=SH&m=&upid=0&web=1" type="video/mp4">
             </video>
         </section>
@@ -87,22 +94,36 @@
         </section>
         <section id="recruitment" class="section">
             <h2>招新</h2>
-            <p>招新内容：</p>
+            <p>火热招新中：</p>
             <a href="https://example.com/apply" target="_blank">申请表链接</a>
         </section>
         <section id="videos" class="section">
             <h2>我们的作品</h2>
-            <p>我们的作品:</p>
-            <ul>
-                <li><a href=" https://www.youtube.com/watch?v=example1" target="_blank">视频1</a></li>
-                <li><a href=" https://www.youtube.com/watch?v=example1" target="_blank">视频2</a></li>
-                <li><a href=" https://www.youtube.com/watch?v=example1" target="_blank">视频3</a></li>
-                <!--更改视频地址-->
-            </ul>
+            <p>扫描下方二维码观看我们的作品：</p>
+            <div class="qr-code">
+                <a href="https://www.youtube.com/watch?v=example1" target="_blank">
+                    <img src="公众号二维码.png" alt="视频二维码">
+                </a>
+            </div>
         </section>
     </div>
     <footer>
         <p>&copy; 2024 IPMC. All rights reserved.</p>
     </footer>
+    <script>
+        window.onload = function () {
+            var video = document.getElementById('welcome-video');
+            if (video.requestFullscreen) {
+                video.requestFullscreen();
+            } else if (video.mozRequestFullScreen) { /* Firefox */
+                video.mozRequestFullScreen();
+            } else if (video.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+                video.webkitRequestFullscreen();
+            } else if (video.msRequestFullscreen) { /* IE/Edge */
+                video.msRequestFullscreen();
+            }
+            video.play();
+        }
+    </script>
 </body>
 </html>
