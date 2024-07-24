@@ -69,6 +69,57 @@
             height: 150px;
             margin: 10px;
         }
+
+        .slidein {
+            -moz-animation-duration: 3s;
+            -webkit-animation-duration: 3s;
+            animation-duration: 3s;
+            -moz-animation-name: slidein;
+            -webkit-animation-name: slidein;
+            animation-name: slidein;
+            -moz-animation-iteration-count: 3;
+            -webkit-animation-iteration-count: 3;
+            animation-iteration-count: 3;
+            -moz-animation-direction: alternate;
+            -webkit-animation-direction: alternate;
+            animation-direction: alternate;
+        }
+
+        @-moz-keyframes slidein {
+            from {
+                margin-left: 100%;
+                width: 300%;
+            }
+
+            to {
+                margin-left: 0%;
+                width: 100%;
+            }
+        }
+
+        @-webkit-keyframes slidein {
+            from {
+                margin-left: 100%;
+                width: 300%;
+            }
+
+            to {
+                margin-left: 0%;
+                width: 100%;
+            }
+        }
+
+        @keyframes slidein {
+            from {
+                margin-left: 100%;
+                width: 300%;
+            }
+
+            to {
+                margin-left: 0%;
+                width: 100%;
+            }
+        }
     </style>
 </head>
 <body>
@@ -82,7 +133,7 @@
     </nav>
     <div class="container">
         <section id="intro-video" class="section">
-            <h2>欢迎视频</h2>
+            <h2 id=" watchme">欢迎视频</h2>
             <video id="welcome-video" controls>
                 <source src="https://finder.video.qq.com/251/20302/stodownload?encfilekey=Cvvj5Ix3eewK0tHtibORqcsqchXNh0Gf3sJcaYqC2rQDy0g5Cw4ibUN8aLZb6YzZtV8qxjWqs56Z8oY1ZlFQS4H8blpgzusmJju2Pa2BU8qNnpZO7J02VXQyic4YgcM3UQf&token=cztXnd9GyrFQvVnibOoFrMzznG4MmhxrdUmYhDvrHiaSDHfDLboMHHaeSE7kzN2K6kjzrT9K9zicDNiaEYAAss1lQ9FIT0LkoaibEGEcAHUJPv5tbWJtUuwDC5Pq062a7BMmn&idx=1&bizid=1023&dotrans=0&hy=SH&m=&upid=0&web=1" type="video/mp4">
             </video>
@@ -111,5 +162,25 @@
     <footer>
         <p>&copy; 2024 IPMC. All rights reserved.</p>
     </footer>
+    var e = document.getElementById("watchme");
+
+    e.className = "slidein";
+
+    function listener(e) {
+    var l = document.createElement("li");
+    switch (e.type) {
+    case "animationstart":
+    l.innerHTML = "Started: elapsed time is " + e.elapsedTime;
+    break;
+    case "animationend":
+    l.innerHTML = "Ended: elapsed time is " + e.elapsedTime;
+    break;
+    case "animationiteration":
+    l.innerHTML = "New loop started at time " + e.elapsedTime;
+    break;
+    }
+    document.getElementById("output").appendChild(l);
+    }
 </body>
+
 </html>
