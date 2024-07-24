@@ -121,6 +121,27 @@
             }
         }
     </style>
+    <script>
+        var e = document.getElementById("watchme");
+
+        e.className = "slidein";
+
+        function listener(e) {
+            var l = document.createElement("li");
+            switch (e.type) {
+                case "animationstart":
+                    l.innerHTML = "Started: elapsed time is " + e.elapsedTime;
+                    break;
+                case "animationend":
+                    l.innerHTML = "Ended: elapsed time is " + e.elapsedTime;
+                    break;
+                case "animationiteration":
+                    l.innerHTML = "New loop started at time " + e.elapsedTime;
+                    break;
+            }
+            document.getElementById("output").appendChild(l);
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -144,7 +165,7 @@
             <p>AP&AL国际项目学生媒体中心（IPMC）成立于2021年，由一群热爱新闻和媒体的青少年组成，他们关注校园生活，密切关注时事，积极传播正能量。IPMC学生是校园故事的记录者、讲述者和见证者。他们用行动展示自己对媒体的热爱。IPMC由学生管理，以学生为主体，为学生服务。它的目标是为对媒体充满热情的学生提供一个展示才华的平台，从这里向公众展示学生眼中的世界，传播学生在新时代对国际课程的价值观、见解和理解。</p>
         </section>
         <section id="recruitment" class="section">
-            <h2>招新</h2>
+            <h2 id="watchme">招新</h2>
             <p>我们正在招募新成员。如果你想加入我们，请点击以下链接查看详细的招新要求：</p>
             <a href="IPMC技术部招新.html" target="_blank">查看招新要求</a>
             <a href="https://example.com/apply" target="_blank">申请邮箱链接</a>
@@ -162,27 +183,6 @@
     <footer>
         <p>&copy; 2024 IPMC. All rights reserved.</p>
     </footer>
-    <script>
-    var e = document.getElementById("watchme");
-
-    e.className = "slidein";
-
-    function listener(e) {
-    var l = document.createElement("li");
-    switch (e.type) {
-    case "animationstart":
-    l.innerHTML = "Started: elapsed time is " + e.elapsedTime;
-    break;
-    case "animationend":
-    l.innerHTML = "Ended: elapsed time is " + e.elapsedTime;
-    break;
-    case "animationiteration":
-    l.innerHTML = "New loop started at time " + e.elapsedTime;
-    break;
-    }
-    document.getElementById("output").appendChild(l);
-    }
-</script>
 </body>
 
 </html>
