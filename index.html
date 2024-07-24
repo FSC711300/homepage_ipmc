@@ -1,11 +1,100 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=0.8, minimum-scale=0.5, maximum-scale=2.0, user-scalable=1">
-        <title>IPMC主页</title>
-    </head>
-    <body>
-        <h1>Welcome to the homepage of IPMC.</h1>
-    </body>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPMC 招新网页</title>
+    <link rel="stylesheet" href="styles.css"> <!-- 在styles.css中添加样式 -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #444;
+        }
+
+            nav a {
+                color: #fff;
+                padding: 14px 20px;
+                text-decoration: none;
+                text-align: center;
+            }
+
+                nav a:hover {
+                    background-color: #555;
+                }
+
+        .container {
+            padding: 20px;
+        }
+
+        .section {
+            margin: 20px 0;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>IPMC 招新</h1>
+    </header>
+    <nav>
+        <a href="#about">简介</a>
+        <a href="#recruitment">招新</a>
+        <a href="#videos">视频链接</a>
+    </nav>
+    <div class="container">
+        <section id="about" class="section">
+            <h2>简介</h2>
+            <p>IPMC 是一个(插入一段简介)。</p>
+            <!--在此处插入一段简介 -->
+        </section>
+        <section id="recruitment" class="section">
+            <h2>招新</h2>
+            <p>招新内容</p>
+            <!--在此处插入一段招新内容-->
+            <a href="填将申请表发送的邮箱" target="_blank">申请表邮箱链接</a>
+            <!--在此处插入邮箱链接-->
+        </section>
+        <section id="videos" class="section">
+            <h2>视频链接</h2>
+            <p>观看以下视频了解更多关于我们的信息：</p>
+            <ul>
+                <li><a href="https://www.youtube.com/watch?v=example1" target="_blank">视频1</a></li>
+                <li><a href="https://www.youtube.com/watch?v=example2" target="_blank">视频2</a></li>
+                <li><a href="https://www.youtube.com/watch?v=example3" target="_blank">视频3</a></li>
+                <!--更改视频地址-->
+            </ul>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2024 IPMC. All rights reserved.</p>
+    </footer>
+</body>
 </html>
