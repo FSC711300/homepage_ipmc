@@ -71,28 +71,23 @@
         }
 
         .slidein {
-            animation-duration: 3s;
-            animation-name: slidein;
-            animation-iteration-count: 3;
-            animation-direction: alternate;
+            animation: slidein 3s forwards;
         }
 
         @keyframes slidein {
             from {
-                margin-left: 100%;
-                width: 300%;
+                transform: translateX(100%);
             }
 
             to {
-                margin-left: 0%;
-                width: 100%;
+                transform: translateX(0);
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1 id="watchme">IPMC 招新</h1>
+        <h1>IPMC 招新</h1>
     </header>
     <nav>
         <a href="#about">简介</a>
@@ -101,25 +96,25 @@
     </nav>
     <div class="container">
         <section id="intro-video" class="section">
-            <h2>欢迎视频</h2>
+            <h2 class="slidein">欢迎视频</h2>
             <video id="welcome-video" controls>
                 <source src="https://finder.video.qq.com/251/20302/stodownload?encfilekey=Cvvj5Ix3eewK0tHtibORqcsqchXNh0Gf3sJcaYqC2rQDy0g5Cw4ibUN8aLZb6YzZtV8qxjWqs56Z8oY1ZlFQS4H8blpgzusmJju2Pa2BU8qNnpZO7J02VXQyic4YgcM3UQf&token=cztXnd9GyrFQvVnibOoFrMzznG4MmhxrdUmYhDvrHiaSDHfDLboMHHaeSE7kzN2K6kjzrT9K9zicDNiaEYAAss1lQ9FIT0LkoaibEGEcAHUJPv5tbWJtUuwDC5Pq062a7BMmn&idx=1&bizid=1023&dotrans=0&hy=SH&m=&upid=0&web=1" type="video/mp4">
             </video>
         </section>
         <section id="about" class="section">
-            <h2>简介</h2>
+            <h2 class="slidein">简介</h2>
             <p>AP&AL International Program Student Media Center (IPMC) was established in 2021. It started with a group of teenagers who love news and media. They focus on campus life, pay close attention to current affairs, and actively spread positive energy. IPMC students are the chroniclers, storytellers, and witnesses of campus stories. They demonstrate their love for the media with their actions. IPMC, managed by students, takes students as the main body, and serves students. It aims to provide a platform for students who are enthusiastic about media to display their talents and present the world in the eyes of students to the public from here, spreading our students’ values, insights, and understanding of international curriculum in the new era.</p>
             <p>AP&AL国际项目学生媒体中心（IPMC）成立于2021年，由一群热爱新闻和媒体的青少年组成，他们关注校园生活，密切关注时事，积极传播正能量。IPMC学生是校园故事的记录者、讲述者和见证者。他们用行动展示自己对媒体的热爱。IPMC由学生管理，以学生为主体，为学生服务。它的目标是为对媒体充满热情的学生提供一个展示才华的平台，从这里向公众展示学生眼中的世界，传播学生在新时代对国际课程的价值观、见解和理解。</p>
             <ul id="output"></ul>
         </section>
         <section id="recruitment" class="section">
-            <h2>招新</h2>
+            <h2 class="slidein">招新</h2>
             <p>我们正在招募新成员。如果你想加入我们，请点击以下链接查看详细的招新要求：</p>
             <a href="IPMC技术部招新.html" target="_blank">查看招新要求</a>
             <a href="https://example.com/apply" target="_blank">申请邮箱链接</a>
         </section>
         <section id="videos" class="section">
-            <h2>我们的作品</h2>
+            <h2 class="slidein">我们的作品</h2>
             <p>扫描下方二维码观看我们的作品或者点击下方图片看看我们的B站吧</p>
             <div class="qr-code">
                 <a href="https://space.bilibili.com/1922968317?spm_id_from=333.1007.0.0" target="_blank">
@@ -131,33 +126,5 @@
     <footer>
         <p>&copy; 2024 IPMC. All rights reserved.</p>
     </footer>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            var e = document.getElementById("watchme");
-
-            e.addEventListener("animationstart", listener, false);
-            e.addEventListener("animationend", listener, false);
-            e.addEventListener("animationiteration", listener, false);
-
-            e.classList.add("slidein");
-
-            function listener(e) {
-                var l = document.createElement("li");
-                switch (e.type) {
-                    case "animationstart":
-                        l.innerHTML = "Started: elapsed time is " + e.elapsedTime;
-                        break;
-                    case "animationend":
-                        l.innerHTML = "Ended: elapsed time is " + e.elapsedTime;
-                        break;
-                    case "animationiteration":
-                        l.innerHTML = "New loop started at time " + e.elapsedTime;
-                        break;
-                }
-                document.getElementById("output").appendChild(l);
-            }
-        });
-    </script>
 </body>
 </html>
