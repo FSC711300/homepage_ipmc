@@ -130,7 +130,6 @@
 
             #welcome-video{
                 width:90%;
-                height:auto;
             }
         </style>
     </head>
@@ -224,7 +223,7 @@
         </script>
         <script>
             var vid=document.getElementById("welcome-video");
-            vid.style.height=vid.style.width/16*9;
+            vid.style.height=parseInt(window.getComputedStyle(vid).width)/16*9+"px";
         </script>
     </body>
 
