@@ -23,6 +23,5 @@ function iframeChange(oldValue, newValue, iframeData) {
     //console.log("新地址："+newValue)
     if (newValue != oldValue) {
         target.src = oldValue;
-        // or othorCode ....
     }
 }
