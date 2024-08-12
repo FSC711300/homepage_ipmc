@@ -37,5 +37,6 @@ function iframeSrcChanged(oldValue, newValue, iframeObj) {
     // } else {
     //     console.log('安全地址，允许跳转……');
     // }
+    if(oldValue!=newValue)
     iframeObj.src = oldValue;
 }
