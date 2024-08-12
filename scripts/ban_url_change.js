@@ -1,42 +1,28 @@
-var elemIframList = document.getElementsByTagName('iframe');
-for (var i = 0; i < elemIframList.length; i++) {
-    initIframeChange(elemIframList[i]);
+var target = document.getElementById("welcome-video"); // 目标节点iframe
+var MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver
+// 创建一个观察器实例
+var observer = new MutationObserver(items => {
+    items.forEach(item => {
+        console.log(item)
+        iframeChange(item.oldValue, item.target.src, item.target)
+    })
+})
+// 观察器的配置
+var options = {
+    childList: false,// 子节点的变动（指新增，删除或者更改） Boolean
+    attributes: true, // 属性的变动      Boolean
+    subtree: false, //表示是否将该观察器应用于该节点的所有后代节点      Boolean
+    attributeOldValue: true, // 表示观察attributes变动时，是否需要记录变动前的属性 Boolean  
+    characterData: false, // 节点内容或节点文本的变动 Boolean
+    attributeFilter: ["src"] // 表示需要观察的特定属性 Array，如['class','src', 'style']
 }
-function initIframeChange(elemIfram) {
-    if (window.MutationObserver || window.webkitMutationObserver) {
-        // chrome
-        var callback = function (mutations) {
-            mutations.forEach(function (mutation) {
-                iframeSrcChanged(mutation.oldValue, mutation.target.src, mutation.target);
-            });
-        };
-        if (window.MutationObserver) {
-            var observer = new MutationObserver(callback);
-        } else {
-            var observer = new webkitMutationObserver(callback);
-        }
-        observer.observe(elemIfram, {
-            attributes: true,
-            attributeOldValue: true
-        });
-    } else if (elemIfram.addEventListener) {
-        // Firefox, Opera and Safari
-        elemIfram.addEventListener("DOMAttrModified", function (event) { iframeSrcChanged(event.prevValue, event.newValue, event.target); }, false);
-    } else if (elemIfram.attachEvent) {
-        // Internet Explorer
-        elemIfram.attachEvent("onpropertychange", function (event) { iframeSrcChanged(event.prevValue, event.newValue, event.target); });
+// 开始观察目标节点
+observer.observe(target, options);
+function iframeChange(oldValue, newValue, iframeData) {
+    //console.log("旧地址："+oldValue)
+    //console.log("新地址："+newValue)
+    if (newValue != oldValue) {
+        window.location.href = oldValue;
+        // or othorCode ....
     }
-}
-
-function iframeSrcChanged(oldValue, newValue, iframeObj) {
-    // console.log('旧地址：' + oldValue);
-    // console.log('新地址：' + newValue);
-    // if (newValue.indexOf('aaaa') > -1) {
-    //     console.log('有危险，请马上离开……')
-    //     iframeObj.src = oldValue;//钓鱼地址，恢复原url
-    // } else {
-    //     console.log('安全地址，允许跳转……');
-    // }
-    if(oldValue!=newValue)
-    iframeObj.src = oldValue;
 }
