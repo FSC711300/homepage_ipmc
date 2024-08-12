@@ -22,7 +22,7 @@ function iframeChange(oldValue, newValue, iframeData) {
     //console.log("旧地址："+oldValue)
     //console.log("新地址："+newValue)
     if (newValue != oldValue) {
-        window.location.href = oldValue;
+        target.src = oldValue;
         // or othorCode ....
     }
 }
