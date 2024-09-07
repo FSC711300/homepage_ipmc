@@ -32,17 +32,15 @@ nav a {
 nav a:hover {
     background-color: #285A8D;
 }
-
 .container {
     padding: 20px;
     max-width: 1200px;
     margin: auto;
 }
-
 .section {
     margin: 20px 0;
-    background-color: #fff;
     padding: 20px;
+    background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -70,12 +68,6 @@ width: 100%;
     box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
 }
 
-video {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
 
 .qr-code img {
     width: 150px;
@@ -113,12 +105,4 @@ video {
 
 .fadein.visible {
     opacity: 1;
-}
-
-#poster img {
-    width: 100%;
-}
-
-#welcome-video {
-    width: 100%;
 }
